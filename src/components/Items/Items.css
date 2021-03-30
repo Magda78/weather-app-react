@@ -1,0 +1,22 @@
+.items {
+    width: 100%;
+}
+
+.rec.rec-arrow {
+    background-color: greenyellow;
+    color: #312B09;
+}
+
+.rec.rec-arrow:hover {
+    background-color: #312B09;
+    color: #39ff14;
+}
+
+.rec.rec-dot {
+    background-color: greenyellow;
+}
+
+.rec.rec-dot_active {
+    border: 1px solid darkgreen;
+    box-shadow: none;
+}
