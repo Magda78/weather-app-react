@@ -62,7 +62,7 @@ function Items({weatherInfo, itemsTemp }) {
 				console.log('ttttttttttttt',element,loaded)
 			}
           { loaded ? 
-		 <Carousel breakPoints={breakPoints} initialActiveIndex={ element}>
+		 <Carousel breakPoints={breakPoints} initialActiveIndex={element}>
 			
 		 {console.log(element)}
 						 {

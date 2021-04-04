@@ -3,6 +3,7 @@ import axios from 'axios';
 import './Main.css';
 import Items from '../Items/Items'
 import moment from 'moment';
+import { Button } from '@material-ui/core';
 //import { useDispatch , useSelector} from 'react-redux';
 //import { celsiusCalculation, selectWeather } from '../../features/weatherSlice' ;
 
@@ -37,8 +38,8 @@ function Main() {
 			.request(options)
 			.then((response) => {
 				setWeatherInfo(response.data);
-				setWeatherTemp(response.data.current.temp_f);
-                setFeelsLike(response.data.current.feelslike_f)
+				setWeatherTemp(Math.round(response.data.current.temp_f));
+                setFeelsLike(Math.round(response.data.current.feelslike_f))
 				console.log(response.data);
 			})
 			.catch(function(error) {
@@ -56,8 +57,8 @@ function Main() {
 	
 
 	const celsiusHandler = () => {
-		setWeatherTemp((weatherInfo?.current.temp_c).toFixed(1));
-        setFeelsLike((weatherInfo?.current.feelslike_c).toFixed(1));
+		setWeatherTemp(Math.round(weatherInfo?.current.temp_c));
+        setFeelsLike(Math.round(weatherInfo?.current.feelslike_c));
         setItemsTemp(true)
 		 //itemsCTemp = weatherInfo?.forecast.forecastday[0].hour.map(item => (
 			//setItemsTemp((item.temp_c).toFixed(1))
@@ -68,8 +69,8 @@ function Main() {
 
 	const fahrenheitHandler = (temp) => {
 		console.log(temp);
-		setWeatherTemp((weatherInfo?.current.temp_f).toFixed());
-		setFeelsLike((weatherInfo?.current.feelslike_f).toFixed());
+		setWeatherTemp(Math.round(weatherInfo?.current.temp_f));
+		setFeelsLike(Math.round(weatherInfo?.current.feelslike_f));
         setItemsTemp(false)
 	}
 
@@ -90,7 +91,7 @@ function Main() {
 			<div className="main__changeLocation">
 <form>
 	<input placeholder="city........" onChange={cityHandler} value={city}/>
-	<button type="submit" onClick={locationHandler}>Change location</button>
+	<Button type="submit" onClick={locationHandler}>Change location</Button>
 </form>
 			</div>
 			<div className="main__headerCity">
@@ -116,7 +117,7 @@ function Main() {
 						<p onClick={celsiusHandler}>C</p>
 						<p onClick={fahrenheitHandler}>F</p>
 					</div>
-				<h1>{weatherTemp}°</h1>
+				<h1>{(weatherTemp)}°</h1>
 				</div>
 			</div>
 			<div className='main__items'>
