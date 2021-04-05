@@ -3,20 +3,43 @@
 }
 
 .rec.rec-arrow {
-    background-color: greenyellow;
-    color: #312B09;
+    background: #ECF0F3;
+    box-shadow: -5px -5px 10px #FFFBFB, 5px 5px 10px rgba(31, 50, 65, 0.29);
+    border-radius: 25px;
+    color: black;
 }
 
 .rec.rec-arrow:hover {
-    background-color: #312B09;
-    color: #39ff14;
+    box-shadow: inset -5px -5px 10px #FFFBFB, inset 5px 5px 10px rgba(31, 50, 65, 0.29);
+    border-radius: 25px;
+    color: red;
+}
+
+.rec.rec-arrow:hover:enabled, .rec.rec-arrow:focus:enabled {
+    background-color: #ECF0F3;
+    box-shadow: inset -5px -5px 10px #FFFBFB, inset 5px 5px 10px rgba(31, 50, 65, 0.29);
+    border-radius: 25px;
+    color: red;
 }
 
 .rec.rec-dot {
-    background-color: greenyellow;
+    background: #ECF0F3;
+    box-shadow: -5px -5px 10px #FFFBFB, 5px 5px 10px rgba(31, 50, 65, 0.29);
+    border-radius: 25px;
 }
 
 .rec.rec-dot_active {
-    border: 1px solid darkgreen;
-    box-shadow: none;
+    background-color: red;
+}
+
+.rec.rec-dot_active:hover:enabled {
+    border: 1px solid red;
+}
+
+.rec.rec-dot_active:focus:enabled {
+    border: 1px solid red;
+}
+
+.rec.rec-dot:focus:enabled, .rec.rec-dot:hover:enabled{
+    border: 1px solid red;
 }

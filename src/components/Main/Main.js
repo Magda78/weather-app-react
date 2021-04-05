@@ -18,11 +18,6 @@ function Main() {
 	
 	const [ city, setCity ] = useState(" ");
 	let itemsCTemp = null;
-	//const tempF = useSelector(selectWeather)
-	//const dispatch = useDispatch();
-	
-	
-
 	
 	const fetchData = () => {
 		const options = {
@@ -47,30 +42,22 @@ function Main() {
 			});
 	}
 
-	
-
 	useEffect(() => {
 		fetchData();	
 	}, []);
 
 
-	
-
 	const celsiusHandler = () => {
-		setWeatherTemp(Math.round(weatherInfo?.current.temp_c));
-        setFeelsLike(Math.round(weatherInfo?.current.feelslike_c));
+		setWeatherTemp(Math.round(weatherInfo.current.temp_c));
+        setFeelsLike(Math.round(weatherInfo.current.feelslike_c));
         setItemsTemp(true)
-		 //itemsCTemp = weatherInfo?.forecast.forecastday[0].hour.map(item => (
-			//setItemsTemp((item.temp_c).toFixed(1))
-		//))
-		//return itemsCTemp
-		//setWeatherTempByHour(weatherInfo?.forecast.forecastday[0].hour[idx].temp_c);
+		 
 	}
 
 	const fahrenheitHandler = (temp) => {
 		console.log(temp);
-		setWeatherTemp(Math.round(weatherInfo?.current.temp_f));
-		setFeelsLike(Math.round(weatherInfo?.current.feelslike_f));
+		setWeatherTemp(Math.round(weatherInfo.current.temp_f));
+		setFeelsLike(Math.round(weatherInfo.current.feelslike_f));
         setItemsTemp(false)
 	}
 
@@ -96,16 +83,16 @@ function Main() {
 			</div>
 			<div className="main__headerCity">
                 <div className="main__headerCityInfo">
-                <h3>{weatherInfo?.location.name}, {weatherInfo?.location.country}</h3>
+                <h3>{weatherInfo.location.name}, {weatherInfo.location.country}</h3>
                 </div>
 			
-            <h4>{moment(weatherInfo?.location.localtime).format('LLLL')}</h4>
+            <h4>{moment(weatherInfo.location.localtime).format('LLLL')}</h4>
 			</div>
 			<div className="main__temp">
 				<div className='main__tempCondition'>
 				{console.log(weatherInfo)}
-				<img src={weatherInfo?.current.condition.icon} alt=''/>
-				<h4>{weatherInfo?.current.condition.text}</h4>
+				<img src={weatherInfo.current.condition.icon} alt=''/>
+				<h4>{weatherInfo.current.condition.text}</h4>
 				</div >
                 <div className='main__tempInfo'>
 				<p>Feels like........................................ <span>{feelsLike}°</span></p>
