@@ -48,16 +48,16 @@ function Main() {
 
 
 	const celsiusHandler = () => {
-		setWeatherTemp(Math.round(weatherInfo.current.temp_c));
-        setFeelsLike(Math.round(weatherInfo.current.feelslike_c));
+		setWeatherTemp(Math.round(weatherInfo?.current.temp_c));
+        setFeelsLike(Math.round(weatherInfo?.current.feelslike_c));
         setItemsTemp(true)
 		 
 	}
 
 	const fahrenheitHandler = (temp) => {
 		console.log(temp);
-		setWeatherTemp(Math.round(weatherInfo.current.temp_f));
-		setFeelsLike(Math.round(weatherInfo.current.feelslike_f));
+		setWeatherTemp(Math.round(weatherInfo?.current.temp_f));
+		setFeelsLike(Math.round(weatherInfo?.current.feelslike_f));
         setItemsTemp(false)
 	}
 
@@ -74,30 +74,26 @@ function Main() {
 
 	return (
 		<div className="main">
-            
 			<div className="main__changeLocation">
-<form>
-	<input placeholder="city........" onChange={cityHandler} value={city}/>
-	<Button type="submit" onClick={locationHandler}>Change location</Button>
-</form>
+				<form>
+					<input placeholder="city........" onChange={cityHandler} value={city}/>
+					<Button type="submit" onClick={locationHandler}>Change location</Button>
+				</form>
 			</div>
 			<div className="main__headerCity">
                 <div className="main__headerCityInfo">
-                <h3>{weatherInfo.location.name}, {weatherInfo.location.country}</h3>
+                	<h3>{weatherInfo?.location.name}, {weatherInfo?.location.country}</h3>
                 </div>
-			
-            <h4>{moment(weatherInfo.location.localtime).format('LLLL')}</h4>
+            <h4>{moment(weatherInfo?.location.localtime).format('LLLL')}</h4>
 			</div>
 			<div className="main__temp">
 				<div className='main__tempCondition'>
-				{console.log(weatherInfo)}
-				<img src={weatherInfo.current.condition.icon} alt=''/>
-				<h4>{weatherInfo.current.condition.text}</h4>
+					<img src={weatherInfo?.current.condition.icon} alt=''/>
+					<h4>{weatherInfo?.current.condition.text}</h4>
 				</div >
                 <div className='main__tempInfo'>
-				<p>Feels like........................................ <span>{feelsLike}°</span></p>
-				<p>Humidity........................................ <span>{weatherInfo?.current.humidity}%</span></p>
-
+					<p>Feels like........................................ <span>{feelsLike}°</span></p>
+					<p>Humidity........................................ <span>{weatherInfo?.current.humidity}%</span></p>
                 </div>
 				<div className='main__tempTemp'>
 					<div className='main__tempTempDegree'>
@@ -108,8 +104,8 @@ function Main() {
 				</div>
 			</div>
 			<div className='main__items'>
-			<Items weatherInfo={weatherInfo} itemsTemp={itemsTemp}/>
-				</div>
+				<Items weatherInfo={weatherInfo} itemsTemp={itemsTemp}/>
+			</div>
 		</div>
 	);
 }
